@@ -1,0 +1,18 @@
+{% load account %}
+{% user_display user as user_display %}
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Welcome to {{ site_name }}!
+
+You received this email because the user {{ user_display }} specified it for your account.
+If it is not you do not follow the link.
+
+To confirm that {{ user_display }} is you, follow this link {{ activate_url }}
+{% endblocktrans %}
+{% endautoescape %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Thank you for using our site!
+
+Site team {{ site_name }}
+{% endblocktrans %}
